@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  currentDate: string;
+
+  constructor() { 
+    this.currentDate = Date();
+    
+
+  }
 
   ngOnInit(): void {
   }
+
+  onSubmit(form: any):void {
+    /*
+     * Emit the click action to AppComponent. AppComponent will listen to the click event and handles the display of the rows there.
+     *
+    */
+  }
+
 
 }

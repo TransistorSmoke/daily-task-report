@@ -3,18 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
-import { TaskComponent } from './task/task.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { FormsModule } from '@angular/forms';
+import { RecordComponent } from './record/record.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    TaskComponent,
-    NavigationComponent
+    NavigationComponent,
+    RecordComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
