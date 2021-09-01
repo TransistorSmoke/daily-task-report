@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'daily-task-report';
+  title: string = 'daily-task-report';
+  record: string = '';
+
+  emittedFormRecordHandler(formRecord: any): void {
+    this.record = formRecord.form.value.record;
+  }
 }
+
+

@@ -3,7 +3,7 @@
   <h3 class="mt-3">Enter your accomplishments, issues and concerns for today</h3>
 </div>
 
-<form class="w-50 mx-auto mt-4 p-3" (ngSubmit)="onSubmit(record.value)" #record="ngForm"> 
+<form class="w-50 mx-auto mt-4 p-3" (ngSubmit)="recordSubmitHandler(formRecord)" #formRecord="ngForm"> 
   <div class="form-group task-input">
     <textarea class="form-control" rows="8" name="record" ngModel></textarea>
   </div>
