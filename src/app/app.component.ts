@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'daily-task-report';
-  record: string = '';
+  // record: string = '';
 
-  emittedFormRecordHandler(formRecord: any): void {
-    this.record = formRecord.form.value.record;
-  }
+  // emittedFormRecordHandler(formRecord: any): void {
+  //   this.record = formRecord.form.value.record;
+  // }
 }
 
 
