@@ -10,11 +10,9 @@ import { Entry } from './entry.model';
 
 
 export class EntryComponent implements OnInit {
-  @Input() allEntries!: Entry;
+  @Input() singleRecordEntry!: Entry;
   
   today: string;
-  
-
 
   constructor() { 
     this.today = Date();
