@@ -25,7 +25,7 @@ export class RecordsGroupComponent implements OnInit {
   receiveEmittedEntryHandler(objRecordsForm: any) {
     this.newEntry = objRecordsForm.value.entry;
 
-    console.log(this.newEntry);
+    // console.log(this.newEntry);
     // console.log("This is from the RecordsGroupComponent.");
     // console.log("The emitted value is: ", objRecordsForm.value.entry);
   }

@@ -7,6 +7,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecordsGroupComponent } from './records/records-group/records-group.component';
 import { EntryComponent } from './records/entry/entry.component';
+import { FormDirective } from './form/form.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EntryComponent } from './records/entry/entry.component';
     FormComponent,
     NavigationComponent,
     RecordsGroupComponent,
-    EntryComponent
+    EntryComponent,
+    FormDirective
   ],
   imports: [
     BrowserModule,

@@ -52,5 +52,4 @@ export class FormComponent implements OnInit {
 	//   this.onRecordSubmit.emit(formRecord);
 	// }
 
-
 }
