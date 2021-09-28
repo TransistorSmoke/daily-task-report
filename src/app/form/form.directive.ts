@@ -18,17 +18,10 @@ export class FormDirective {
 	const textArea = this.element;
 		if (event.code === 'Tab') {
 			event.preventDefault();
-
 			let currentText = this.element.nativeElement.value;
 			this.element.nativeElement.value = currentText + '\t';
-			// console.log('Cursor start: ', cursorStart);
-			// console.log('cursor end after tab: ', cursorStart + tabSpace);
 			this.element.nativeElement.selectionStart =  this.element.nativeElement.selectionEnd = cursorStart + tabSpace;
 			this.element.nativeElement.focus();
 		}
-
 	}
-
-	// NEXT TASK - correctly render tab space when record/entry is displayed in the `entry` component.
-
 }

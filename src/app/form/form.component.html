@@ -5,11 +5,11 @@
 
 
 <!-- TDL: allow tab to be used inside the textarea -->
-<form class="w-50 mx-auto mt-4 p-3" [formGroup]="recordsForm" (ngSubmit)="entrySubmitHandler()"> 
+<form class="w-75 mx-auto mt-4 p-3" [formGroup]="recordsForm" (ngSubmit)="entrySubmitHandler()"> 
     <div class="form-group task-input">
         <textarea 
             class="form-control"
-            rows="8"
+            rows="12"
             name="record"
             placeholder = "Enter concerns, records and results"
             formControlName="entry"

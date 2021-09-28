@@ -39,17 +39,4 @@ export class FormComponent implements OnInit {
 		}
 	}
 
-
-
-
-	// recordSubmitHandler(formRecord: NgForm): void {
-	//   /*
-	//    * Emit the click action to AppComponent. AppComponent will listen to the click event and handles the display of the rows there.
-	//    *
-	//   */
-	//   // console.log(formRecord.form.value.record)
-	//   // console.log(formRecord.value.record);
-	//   this.onRecordSubmit.emit(formRecord);
-	// }
-
 }
