@@ -1,13 +1,13 @@
-<div class="p-2 bg-success text-white">
-    <i class="bi bi-arrow-down-square-fill mr-2"></i>
-    <span class="">{{ today | date: 'mediumDate'}}</span>
-        <!-- <i class="bi bi-pencil-square ml-auto"></i> -->
+<div class="d-flex p-2 bg-success text-white">
+    <i class="entry-icon bi bi-arrow-down-square-fill mr-2"></i>
+    <!-- <span class="entry-date-width">{{ today | date: 'd MMM YYYY'}}</span> -->
+    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMM YYYY'}}</span>
+    <i class="entry-icon bi bi-pencil-square ml-2"></i>
 </div>
 
 <div class="bg-light">
-    <section class="list-group-item">
-
-            {{ singleRecordEntry }}
-
-    </section>
+    <article class="list-group-item h-0" contenteditable="false">
+        <!-- {{ singleRecordEntry }} -->
+        {{ singleRecordEntry.entryText }}
+    </article>
 </div>

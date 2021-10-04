@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Entry } from '../records/entry/entry.model';
 
 @Component({
 	selector: 'app-form',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 	styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-	// @Output() onRecordSubmit: EventEmitter<Object>;
+	@Input() arrayEntries!: Entry[];
 	@Output() onEntryEmit: EventEmitter<Object>;
 
 	currentDate: string;
@@ -15,8 +16,6 @@ export class FormComponent implements OnInit {
 
 	constructor() { 
 		this.currentDate = Date();
-		// this.onRecordSubmit = new EventEmitter();
-
 		this.onEntryEmit = new EventEmitter();
 	}
 
@@ -27,16 +26,10 @@ export class FormComponent implements OnInit {
 	}
 
 	entrySubmitHandler(): void {
-		// console.log("Entry for the day: ", this.recordsForm.value.entry)
-		// console.log(this.recordsForm);
-		try {
-			this.onEntryEmit.emit(this.recordsForm);
-			this.recordsForm.setValue({
-				"entry": ''
-			});
-		} catch (error) {
-			console.log(error);
-		}
+		console.log('The value: ', this.recordsForm.value);
+		this.onEntryEmit.emit(this.recordsForm);
+		this.recordsForm.setValue({
+			"entry": ''
+		});
 	}
-
 }

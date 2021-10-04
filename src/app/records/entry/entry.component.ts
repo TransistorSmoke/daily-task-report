@@ -12,17 +12,13 @@ import { Entry } from './entry.model';
 export class EntryComponent implements OnInit {
   @Input() singleRecordEntry!: Entry;
   
-  today: string;
+  dateToday: string;
 
   constructor() { 
-    this.today = Date();
+    this.dateToday = Date();
   }
-
 
   ngOnInit(): void {
 
   }
-
-
-
 }

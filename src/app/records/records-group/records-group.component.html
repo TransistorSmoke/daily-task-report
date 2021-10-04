@@ -1,6 +1,14 @@
 <div class="container">
-	<app-form 
+	<!-- <app-form (onEntryEmit)="receiveEmittedEntryHandler($event)"></app-form>
+	<app-entry [singleRecordEntry]="newEntry"></app-entry> -->
+
+	<app-form
 		(onEntryEmit)="receiveEmittedEntryHandler($event)">
 	</app-form>
-	<app-entry [singleRecordEntry]="newEntry"></app-entry>
+
+	<ul class="records-entries-list">
+		<li *ngFor="let entry of arrayEntries">
+			<app-entry [singleRecordEntry]="entry"></app-entry>
+		</li>
+	</ul>
 </div>

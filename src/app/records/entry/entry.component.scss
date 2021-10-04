@@ -1,3 +1,11 @@
-section  {
+.entry-date-width {
+    flex-grow: 2;
+}
+
+.entry-icon {
+    cursor: pointer;
+}
+
+article  {
     white-space: pre-wrap;
 }
