@@ -25,9 +25,16 @@ export class FormComponent implements OnInit {
 		});
 	}
 
+
+	/*
+	 *	Emit the records form data from this current form component (child) to the records component (parent).
+	 *  Resets the form after emitting the data.
+	 *
+	*/
 	entrySubmitHandler(): void {
-		console.log('The value: ', this.recordsForm.value);
 		this.onEntryEmit.emit(this.recordsForm);
+
+		// Reset the textfield input
 		this.recordsForm.setValue({
 			"entry": ''
 		});

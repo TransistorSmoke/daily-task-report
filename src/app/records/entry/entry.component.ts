@@ -11,6 +11,8 @@ import { Entry } from './entry.model';
 
 export class EntryComponent implements OnInit {
   @Input() singleRecordEntry!: Entry;
+
+  arrowPos: string = 'up';
   
   dateToday: string;
 
