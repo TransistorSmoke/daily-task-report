@@ -5,7 +5,7 @@
 </div>
 
 <div class="bg-light">
-    <article class="list-group-item h-0" contenteditable="false">
+    <article class="list-group-item h-0" contenteditable="false" [ngClass]="{hide: singleRecordEntry.entryText.length === 0}">
         {{ singleRecordEntry.entryText }}
     </article>
 </div>
