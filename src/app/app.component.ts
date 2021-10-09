@@ -14,9 +14,7 @@ export class AppComponent implements OnInit {
   allEntries!: Entry[];
   newEntries!: Entry[];
 
-  constructor(private allEntriesService: AllEntriesService) {
-    
-  }
+  constructor(private allEntriesService: AllEntriesService) {}
 
   ngOnInit(): void {
     

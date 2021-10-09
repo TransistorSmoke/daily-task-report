@@ -34,11 +34,14 @@ export class RecordsGroupComponent implements OnInit {
 
 
 		if (indexEntry > -1) {
-
 			// If text input is not empty, record it. Otherwise, do nothing.
 			this.arrayEntries[indexEntry].entryText += this.arrayEntries[indexEntry].entryText.length  === 0 
-				? objRecordsForm.value.entry 
-				: (objRecordsForm.value.entry.length > 0 ? `\n${objRecordsForm.value.entry}` : '');
+				? objRecordsForm.value.entry
+				: (objRecordsForm.value.entry.length > 0 ? `\n${objRecordsForm.value.entry}` : '');		
+
+			if (!this.arrayEntries[indexEntry].isEntryShown) {
+				this.arrayEntries[indexEntry].isEntryShown = true;
+			}
 		}
 	}
 

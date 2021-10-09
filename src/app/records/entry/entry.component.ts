@@ -11,6 +11,7 @@ import { fromEvent } from 'rxjs';
 export class EntryComponent implements OnInit {
   // @ViewChild('upDownArrow') arrowDisplayToggler: ElementRef;
   @Input() singleRecordEntry!: Entry;
+  // isToday: Boolean;
 
   arrowPosition: string = 'down';
   
@@ -20,7 +21,5 @@ export class EntryComponent implements OnInit {
     this.dateToday = Date();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }

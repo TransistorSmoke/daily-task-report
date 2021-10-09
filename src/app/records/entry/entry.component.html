@@ -1,11 +1,9 @@
 <div class="d-flex p-2 bg-success text-white border-bottom">
     <i class="entry-icon bi bi-arrow-{{arrowPosition}}-square-fill mr-2" #upDownArrow></i>
-    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMM YYYY'}}</span>
+    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMM YYYY'}} </span>
     <i class="entry-icon bi bi-pencil-square ml-2"></i>
 </div>
 
 <div class="bg-light">
-    <article class="list-group-item h-0" contenteditable="false" [ngClass]="{hide: singleRecordEntry.entryText.length === 0}">
-        {{ singleRecordEntry.entryText }}
-    </article>
+    <article class="list-group-item h-0" contenteditable="false" [ngClass]="{hide: !singleRecordEntry.isEntryShown}">{{singleRecordEntry.entryText}}</article>
 </div>

@@ -4,13 +4,10 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 	selector: '[appEnableTabUse]'
 })
 export class FormDirective {
-
 	constructor(private element: ElementRef) { }
-
 
 	@HostListener('keydown', ['$event'])
 	onKeyDown(event: KeyboardEvent) {
-	//Keycode for TAB is 9
 
 	const tabSpace = 16;
 	const cursorStart = this.element.nativeElement.selectionStart;
