@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from './records/entry/entry.model';
-import { ALL_ENTRIES_RECORDS } from './data/entries-data.service';
+import { AllEntriesService } from './data/entries-data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,16 @@ export class AppComponent implements OnInit {
   title: string = 'daily-task-report';
   record: string = '';
 
-  allEntries: Entry[];
+  allEntries!: Entry[];
   newEntries!: Entry[];
 
-  constructor() {
-    this.allEntries = ALL_ENTRIES_RECORDS;
+  constructor(private allEntriesService: AllEntriesService) {
+    
   }
 
   ngOnInit(): void {
+    this.allEntries = this.allEntriesService.get();
+
     // Create and add new entry record for the day to allEntries and sort the new array in a descending order
     this.newEntries = [...this.allEntries, new Entry(new Date(), '')];
     this.newEntries.sort((a, b) => {

@@ -22,26 +22,15 @@ export class RecordsGroupComponent implements OnInit {
 	}
 
 	/*
-	*
 	*	Adds the input value in the textbox as the day's new entry record
-	*
 	*	UPDATE: The setting method of a new entry record needs to be updated. 
-	*	Since a new entry row is automatically generated and added upon initialisation of the app component, 
+	*	Since a new entry row is automatically generated and added upon initialisation of the AppComponent, 
 	*	what needs to be done now is updating only that newly generated entry for the day.
-	*
-	
 	*/
 
-
-
 	receiveEmittedEntryHandler(objRecordsForm: any) {
-		// this.newEntry = objRecordsForm.value.entry;
 		const todaysDate = new Date();
-		
-		// Find this date inside ALL_ENTRIES_RECORDS
 		const indexEntry = this.arrayEntries.findIndex(entry => this.compareEntryDates(entry.entryDate, todaysDate));
-		
-		console.log('received emitted object: ', objRecordsForm.value);
 
 		if (indexEntry > -1) {
 			this.arrayEntries[indexEntry].entryText = objRecordsForm.value.entry;

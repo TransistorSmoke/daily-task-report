@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Entry } from '../records/entry/entry.model';
 
+
+
 @Component({
 	selector: 'app-form',
 	templateUrl: './form.component.html',

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Entry } from './entry.model';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-entry',
@@ -7,12 +8,11 @@ import { Entry } from './entry.model';
   styleUrls: ['./entry.component.scss']
 })
 
-
-
 export class EntryComponent implements OnInit {
+  // @ViewChild('upDownArrow') arrowDisplayToggler: ElementRef;
   @Input() singleRecordEntry!: Entry;
 
-  arrowPos: string = 'up';
+  arrowPosition: string = 'down';
   
   dateToday: string;
 
