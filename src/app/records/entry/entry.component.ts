@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2} from '@angular/core';
 import { Event } from '@angular/router';
 import { Entry } from './entry.model';
 
@@ -12,12 +12,13 @@ export class EntryComponent implements OnInit, AfterViewInit{
 	@Input() singleRecordEntry!: Entry;
 	@Input() isShown!: boolean;
 
-	@ViewChild('testClickIcon') testClickIcon!: ElementRef;
+	@ViewChild('clickToEdit') editorElement!: ElementRef;
+	@ViewChild('entryElement') entryElement!: ElementRef;
 
 	arrowPosition!: string;
 	dateToday: string;
 
-	constructor() { 
+	constructor(private renderer: Renderer2) { 
 		this.dateToday = Date();
 	}
 
@@ -29,10 +30,18 @@ export class EntryComponent implements OnInit, AfterViewInit{
 
 	}
 
+	/*
+	 * Enable the editing of the entry
+	 *
+	*/
 	public editEntry(): void {
-		if (this.singleRecordEntry.isEntryShown) {
+
+		if(!this.singleRecordEntry.isEntryShown && this.singleRecordEntry.entryText) {
 			this.singleRecordEntry.isEntryShown = true;
 		}
+
+		this.renderer.setAttribute(this.entryElement.nativeElement, 'contenteditable', 'true');
+		this.entryElement.nativeElement.focus();
 	}
 
 

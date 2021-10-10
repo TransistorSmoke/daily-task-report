@@ -4,12 +4,11 @@
         title="Toggle entry"
         (click)="toggleEntryDisplay()">
     </i>
-    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMM YYYY'}} </span>
-    <span class="edit-entry" (click)="editEntry()">Edit   
+    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY'}} </span>
+    <span class="edit-entry" (click)="editEntry()" #clickToEdit>Edit   
         <i 
             class="entry-icon bi bi-pencil-square ml-1"
-            title="Edit entry record" 
-            #testClickIcon>
+            title="Edit entry record">
         </i>
     </span>
   
@@ -17,8 +16,8 @@
 
 <div class="bg-light">
     <article 
-        class="list-group-item h-0" 
-        contenteditable="false" 
+        class="list-group-item h-0"
+        contenteditable="false"
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
-        appEditController>{{singleRecordEntry.entryText}}</article>
+        #entryElement>{{singleRecordEntry.entryText}}</article>
 </div>
