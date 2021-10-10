@@ -7,7 +7,8 @@
 		<li *ngFor="let entry of arrayEntries; let entryIndex = index" >
 			<app-entry 
 				[singleRecordEntry]="entry" 
-				(click)="toggleEntryDisplay(entryIndex)">
+				(click)="toggleEntryDisplay(entryIndex)"
+				[isShown]="entry.isEntryShown">
 			</app-entry>
 		</li>
 	</ul>

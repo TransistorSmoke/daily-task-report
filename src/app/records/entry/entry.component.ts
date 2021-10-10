@@ -9,8 +9,9 @@ import { Entry } from './entry.model';
 
 export class EntryComponent implements OnInit {
 	@Input() singleRecordEntry!: Entry;
+	@Input() isShown!: boolean;
 
-	arrowPosition: string = 'up';
+	arrowPosition!: string;
 	dateToday: string;
 
 	constructor() { 
@@ -18,7 +19,10 @@ export class EntryComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log(this.singleRecordEntry)
+		
 	}
 
+	public editEntry(): void {
+
+	}
 }
