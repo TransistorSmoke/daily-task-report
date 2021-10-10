@@ -5,7 +5,10 @@
 
 	<ul class="records-entries-list">
 		<li *ngFor="let entry of arrayEntries; let entryIndex = index" >
-			<app-entry [singleRecordEntry]="entry" (click)="toggleEntryDisplay(entryIndex)"></app-entry>
+			<app-entry 
+				[singleRecordEntry]="entry" 
+				(click)="toggleEntryDisplay(entryIndex)">
+			</app-entry>
 		</li>
 	</ul>
 </div>

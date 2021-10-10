@@ -1,25 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Entry } from './entry.model';
-import { fromEvent } from 'rxjs';
 
 @Component({
-  selector: 'app-entry',
-  templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.scss']
+	selector: 'app-entry',
+	templateUrl: './entry.component.html',
+	styleUrls: ['./entry.component.scss']
 })
 
 export class EntryComponent implements OnInit {
-  @Input() singleRecordEntry!: Entry;
+	@Input() singleRecordEntry!: Entry;
 
-  arrowPosition: string = 'down';
-  
-  dateToday: string;
+	arrowPosition: string = 'up';
+	dateToday: string;
 
-  constructor() { 
-    this.dateToday = Date();
-  }
+	constructor() { 
+		this.dateToday = Date();
+	}
 
-  ngOnInit(): void {}
-
+	ngOnInit(): void {
+		console.log(this.singleRecordEntry)
+	}
 
 }

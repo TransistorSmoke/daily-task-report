@@ -10,11 +10,9 @@ import { AllEntriesService } from '../../data/entries-data.service';
 })
 export class RecordsGroupComponent implements OnInit {
 	@Input() arrayEntries!: Entry[];
+
 	newEntry!: Entry;
-
-	
 	today: string;
-
 
 	constructor(private allEntriesService: AllEntriesService) { 
 		this.today = Date();
@@ -46,7 +44,6 @@ export class RecordsGroupComponent implements OnInit {
 		}
 	}
 
-
 	/*
 	 * Compares dates.
 	 * Returns true if dates are equal, false if otherwise.
@@ -66,9 +63,13 @@ export class RecordsGroupComponent implements OnInit {
 
 	public toggleEntryDisplay(entryIndex: Number | any): void {
 		const entriesToBeHidden = this.arrayEntries.filter((entry, index) => index !== entryIndex);
-		if (entriesToBeHidden) entriesToBeHidden.forEach(entry => entry.isEntryShown = false)
+		if (entriesToBeHidden) {
+			entriesToBeHidden.forEach(entry => entry.isEntryShown = false);
+		}
 			
 		// Show only entries with content. It's useless to show those with none.
-		if (this.arrayEntries[entryIndex].entryText !== '') this.arrayEntries[entryIndex].isEntryShown = true;
+		if (this.arrayEntries[entryIndex].entryText !== '') {
+			this.arrayEntries[entryIndex].isEntryShown = !this.arrayEntries[entryIndex].isEntryShown;
+		}
 	}
 }
