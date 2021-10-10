@@ -29,8 +29,10 @@ export class EntryComponent implements OnInit, AfterViewInit{
 
 	}
 
-	public editEntry(e: Event): void {
-
+	public editEntry(): void {
+		if (this.singleRecordEntry.isEntryShown) {
+			this.singleRecordEntry.isEntryShown = true;
+		}
 	}
 
 

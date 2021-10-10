@@ -1,10 +1,18 @@
-<div class="d-flex p-2 bg-success text-white border-bottom" (click)="toggleEntryDisplay()">
-    <i class="entry-icon bi bi-arrow-{{isShown ? 'down' : 'up'}}-square-fill mr-2"></i>
-    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMM YYYY'}} </span>
+<div class="d-flex p-2 bg-success text-white border-bottom" >
     <i 
-        class="entry-icon bi bi-pencil-square ml-2"
-        title="Edit entry record" 
-        #testClickIcon></i>
+        class="entry-icon bi bi-arrow-{{isShown ? 'down' : 'up'}}-square-fill mr-2"
+        title="Toggle entry"
+        (click)="toggleEntryDisplay()">
+    </i>
+    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMM YYYY'}} </span>
+    <span class="edit-entry" (click)="editEntry()">Edit   
+        <i 
+            class="entry-icon bi bi-pencil-square ml-1"
+            title="Edit entry record" 
+            #testClickIcon>
+        </i>
+    </span>
+  
 </div>
 
 <div class="bg-light">

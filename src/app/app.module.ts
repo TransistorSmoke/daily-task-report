@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecordsGroupComponent } from './records/records-group/records-group.component';
 import { EntryComponent } from './records/entry/entry.component';
 import { FormDirective } from './form/form.directive';
+import { EnableEditDirective } from './records/entry/enable-edit.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormDirective } from './form/form.directive';
     NavigationComponent,
     RecordsGroupComponent,
     EntryComponent,
-    FormDirective
+    FormDirective,
+    EnableEditDirective
   ],
   imports: [
     BrowserModule,

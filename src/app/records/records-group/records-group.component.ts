@@ -31,9 +31,8 @@ export class RecordsGroupComponent implements OnInit {
 		const indexEntry = this.arrayEntries.findIndex(entry => this.compareEntryDates(entry.entryDate, todaysDate));
 		const formInput = objRecordsForm.value.entry || null;
 
+		// If text input is not empty, record it. Otherwise, do nothing.
 		if (indexEntry > -1) {
-			// If text input is not empty, record it. Otherwise, do nothing.
-
 			if (this.arrayEntries && formInput) {
 				this.arrayEntries[indexEntry].entryText += (this.arrayEntries[indexEntry].entryText.length === 0) ? formInput : `\n${formInput}`;
 
@@ -61,15 +60,15 @@ export class RecordsGroupComponent implements OnInit {
 	 *
 	*/
 
-	public toggleEntryDisplay(entryIndex: Number | any): void {
-		const entriesToBeHidden = this.arrayEntries.filter((entry, index) => index !== entryIndex);
-		if (entriesToBeHidden) {
-			entriesToBeHidden.forEach(entry => entry.isEntryShown = false);
-		}
+	// public toggleEntryDisplay(entryIndex: Number | any): void {
+	// 	const entriesToBeHidden = this.arrayEntries.filter((entry, index) => index !== entryIndex);
+	// 	if (entriesToBeHidden) {
+	// 		entriesToBeHidden.forEach(entry => entry.isEntryShown = false);
+	// 	}
 			
-		// Show only entries with content. It's useless to show those with none.
-		if (this.arrayEntries[entryIndex].entryText !== '') {
-			this.arrayEntries[entryIndex].isEntryShown = !this.arrayEntries[entryIndex].isEntryShown;
-		}
-	}
+	// 	// Show only entries with content. It's useless to show those with none.
+	// 	if (this.arrayEntries[entryIndex].entryText !== '') {
+	// 		this.arrayEntries[entryIndex].isEntryShown = !this.arrayEntries[entryIndex].isEntryShown;
+	// 	}
+	// }
 }
