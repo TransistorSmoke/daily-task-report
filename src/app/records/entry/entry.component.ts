@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Entry } from './entry.model';
 import { fromEvent } from 'rxjs';
 
@@ -9,9 +9,7 @@ import { fromEvent } from 'rxjs';
 })
 
 export class EntryComponent implements OnInit {
-  // @ViewChild('upDownArrow') arrowDisplayToggler: ElementRef;
   @Input() singleRecordEntry!: Entry;
-  // isToday: Boolean;
 
   arrowPosition: string = 'down';
   
@@ -22,4 +20,6 @@ export class EntryComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+
 }

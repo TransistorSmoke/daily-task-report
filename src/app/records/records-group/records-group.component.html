@@ -4,8 +4,8 @@
 	</app-form>
 
 	<ul class="records-entries-list">
-		<li *ngFor="let entry of arrayEntries">
-			<app-entry [singleRecordEntry]="entry"></app-entry>
+		<li *ngFor="let entry of arrayEntries; let entryIndex = index" >
+			<app-entry [singleRecordEntry]="entry" (click)="toggleEntryDisplay(entryIndex)"></app-entry>
 		</li>
 	</ul>
 </div>

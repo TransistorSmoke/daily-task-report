@@ -12,15 +12,15 @@ export class RecordsGroupComponent implements OnInit {
 	@Input() arrayEntries!: Entry[];
 	newEntry!: Entry;
 
+	
 	today: string;
+
 
 	constructor(private allEntriesService: AllEntriesService) { 
 		this.today = Date();
 	}
 
-	ngOnInit(): void {
-		
-	}
+	ngOnInit(): void {}
 
 	/*
 	*	Adds the input value in the textbox as the day's new entry record
@@ -31,16 +31,17 @@ export class RecordsGroupComponent implements OnInit {
 	public receiveEmittedEntryHandler(objRecordsForm: any): void {
 		const todaysDate = new Date();
 		const indexEntry = this.arrayEntries.findIndex(entry => this.compareEntryDates(entry.entryDate, todaysDate));
-
+		const formInput = objRecordsForm.value.entry || null;
 
 		if (indexEntry > -1) {
 			// If text input is not empty, record it. Otherwise, do nothing.
-			this.arrayEntries[indexEntry].entryText += this.arrayEntries[indexEntry].entryText.length  === 0 
-				? objRecordsForm.value.entry
-				: (objRecordsForm.value.entry.length > 0 ? `\n${objRecordsForm.value.entry}` : '');		
 
-			if (!this.arrayEntries[indexEntry].isEntryShown) {
-				this.arrayEntries[indexEntry].isEntryShown = true;
+			if (this.arrayEntries && formInput) {
+				this.arrayEntries[indexEntry].entryText += (this.arrayEntries[indexEntry].entryText.length === 0) ? formInput : `\n${formInput}`;
+
+				if (!this.arrayEntries[indexEntry].isEntryShown) {
+					this.arrayEntries[indexEntry].isEntryShown = true;
+				}
 			}
 		}
 	}
@@ -57,4 +58,20 @@ export class RecordsGroupComponent implements OnInit {
 				date1.getMonth() === date2.getMonth() &&
 				date1.getFullYear() === date2.getFullYear() ? true : false;
 	}
+
+
+	/*
+	 * Show/hide the entry details when clicking on the entry header
+	 *
+	*/
+
+	public toggleEntryDisplay(entryIndex: Number): void {
+		console.log(entryIndex);
+
+		const entriesToBeClosed = this.arrayEntries.filter((entry, index) => index !== entryIndex);
+		console.log(entriesToBeClosed)
+
+
+	}
+
 }
