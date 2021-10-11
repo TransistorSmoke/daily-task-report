@@ -6,16 +6,16 @@
     cursor: pointer;
 }
 
+.disabled {
+    color:#ffffff49
+}
+
 article  {
     white-space: pre-wrap;
 
     &.hide {
         display: none;
-    }
- 
+    } 
+
+
 }
-
-
-
- .bordered {
-    border: 1px dashed black; background-color: #eee; }

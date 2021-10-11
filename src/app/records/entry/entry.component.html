@@ -1,23 +1,36 @@
-<div class="d-flex p-2 bg-success text-white border-bottom" >
+<div class="d-flex p-2 bg-dark text-light">
     <i 
         class="entry-icon bi bi-arrow-{{isShown ? 'down' : 'up'}}-square-fill mr-2"
         title="Toggle entry"
         (click)="toggleEntryDisplay()">
     </i>
     <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY'}} </span>
-    <span class="edit-entry" (click)="editEntry()" #clickToEdit>Edit   
-        <i 
-            class="entry-icon bi bi-pencil-square ml-1"
-            title="Edit entry record">
-        </i>
-    </span>
-  
+    <span 
+        class="edit-entry" 
+        (click)="editEntry()"
+        [ngClass]="{disabled: singleRecordEntry.entryText.length === 0}" 
+        #clickToEdit>Edit
+            <i 
+                class="entry-icon bi bi-pencil-square ml-1"
+                title="Edit entry record">
+            </i>
+    </span>  
 </div>
 
-<div class="bg-light">
+<div class="">
     <article 
-        class="list-group-item h-0"
+        class="list-group-item h-0 border border-light text-secondary"
         contenteditable="false"
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
-        #entryElement>{{singleRecordEntry.entryText}}</article>
+        #entryElement>{{singleRecordEntry.entryText}}
+    </article>
+    
+    <div class="text-right mb-2">
+        <span>
+            <button type="button" class="btn btn-light btn-sm mx-2 mt-1">Save</button>
+            <button type="button" class="btn btn-light btn-sm">Cancel</button>
+        </span>
+    </div>
+
+
 </div>

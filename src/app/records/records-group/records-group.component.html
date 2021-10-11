@@ -4,10 +4,9 @@
 	</app-form>
 
 	<ul class="records-entries-list">
-		<li *ngFor="let entry of arrayEntries; let entryIndex = index" >
+		<li class="entry-list-item" *ngFor="let entry of arrayEntries; let entryIndex = index" >
 			<app-entry 
 				[singleRecordEntry]="entry" 
-				
 				[isShown]="entry.isEntryShown">
 			</app-entry>
 		</li>
