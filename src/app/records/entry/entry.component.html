@@ -1,4 +1,4 @@
-<div class="d-flex p-2 bg-dark text-light">
+<div class="d-flex p-2 bg-secondary text-light">
     <i 
         class="entry-icon bi bi-arrow-{{isShown ? 'down' : 'up'}}-square-fill mr-2"
         title="Toggle entry"
@@ -24,13 +24,10 @@
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
         #entryElement>{{singleRecordEntry.entryText}}
     </article>
-    
-    <div class="text-right mb-2">
+    <div class="text-right mb-2" [ngClass]="{hide: !isEditClicked}">
         <span>
-            <button type="button" class="btn btn-light btn-sm mx-2 mt-1">Save</button>
-            <button type="button" class="btn btn-light btn-sm">Cancel</button>
+            <button type="button" class="btn btn-light btn-sm mx-2 mt-1 save" (click)="editEntryHandler($event)">Save</button>
+            <button type="button" class="btn btn-light btn-sm cancel" (click)="editEntryHandler($event)">Cancel</button>
         </span>
     </div>
-
-
 </div>
