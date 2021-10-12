@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef, Renderer2} from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { Event } from '@angular/router';
 import { Entry } from './entry.model';
 
@@ -8,7 +8,7 @@ import { Entry } from './entry.model';
 	styleUrls: ['./entry.component.scss']
 })
 
-export class EntryComponent {
+export class EntryComponent implements AfterViewInit {
 	@Input() singleRecordEntry!: Entry;
 	@Input() isShown!: boolean;
 
@@ -24,6 +24,11 @@ export class EntryComponent {
 		this.dateToday = Date();
 		this.isEditClicked = false;
 	}
+
+	ngAfterViewInit() {
+		
+	}
+
 
 	/*
 	 * Enable the editing of the entry
@@ -58,18 +63,19 @@ export class EntryComponent {
 	 *
 	*/
 	public editEntryHandler(event: any) {
-		const isSave = event.target.classList.value.indexOf('save') > -1 ? true : false;
+		const elNativeEntryRow = this.entryElement.nativeElement;
+		const isCancel = event.target.classList.value.indexOf('cancel') > -1 ? true : false;
 		const entryBeforeUpdate = this.singleRecordEntry.entryText;
-		let updatedEntry = '';
 
-		if (isSave) {
-			return;
+		// Close the save/cancel row, set the textarea to be uneditable
+		if (isCancel) {	
+			this.renderer.setProperty(elNativeEntryRow, 'textContent', entryBeforeUpdate);	
 		} else {
-
-			// close the save/cancel row, set the textarea to be uneditable
-			this.isEditClicked = false;		
-			this.renderer.setAttribute(this.entryElement.nativeElement, 'contenteditable', 'false');
-		
+			this.renderer.setProperty(elNativeEntryRow, 'textContent', elNativeEntryRow.innerText);	
+			this.singleRecordEntry.entryText = elNativeEntryRow.innerText;
 		}
+
+		this.isEditClicked = false;	
+		this.renderer.setAttribute(elNativeEntryRow, 'contenteditable', 'false');
 	}
 }

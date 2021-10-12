@@ -54,21 +54,4 @@ export class RecordsGroupComponent implements OnInit {
 				date1.getMonth() === date2.getMonth() &&
 				date1.getFullYear() === date2.getFullYear() ? true : false;
 	}
-
-	/*
-	 * Show/hide the entry details when clicking on the entry header
-	 *
-	*/
-
-	// public toggleEntryDisplay(entryIndex: Number | any): void {
-	// 	const entriesToBeHidden = this.arrayEntries.filter((entry, index) => index !== entryIndex);
-	// 	if (entriesToBeHidden) {
-	// 		entriesToBeHidden.forEach(entry => entry.isEntryShown = false);
-	// 	}
-			
-	// 	// Show only entries with content. It's useless to show those with none.
-	// 	if (this.arrayEntries[entryIndex].entryText !== '') {
-	// 		this.arrayEntries[entryIndex].isEntryShown = !this.arrayEntries[entryIndex].isEntryShown;
-	// 	}
-	// }
 }
