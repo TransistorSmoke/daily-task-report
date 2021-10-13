@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Entry } from './records/entry/entry.model';
 import { AllEntriesService } from './data/entries-data.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
