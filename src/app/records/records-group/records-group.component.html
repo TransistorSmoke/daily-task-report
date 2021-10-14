@@ -3,12 +3,20 @@
 		(onEntryEmit)="receiveEmittedEntryHandler($event)">
 	</app-form>
 
-	<ul class="records-entries-list">
-		<li class="entry-list-item" *ngFor="let entry of arrayEntries; let entryIndex = index" >
-			<app-entry 
-				[singleRecordEntry]="entry" 
-				[isShown]="entry.isEntryShown">
-			</app-entry>
-		</li>
-	</ul>
+	<div class="text-center mb-3">
+		<app-button [buttonName]="'Open All'"></app-button>
+		<app-button [buttonName]="'Close All'"></app-button>
+	</div>
+
+	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
+		<ul class="records-entries-list px-0">
+			<li class="entry-list-item" *ngFor="let entry of arrayEntries; let entryIndex = index" >
+				<app-entry 
+					[singleRecordEntry]="entry" 
+					[isShown]="entry.isEntryShown">
+				</app-entry>
+			</li>
+		</ul>
+	</div>
+
 </div>
