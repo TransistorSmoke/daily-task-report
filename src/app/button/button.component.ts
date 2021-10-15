@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Entry } from '../records/entry/entry.model';
 
 
@@ -7,7 +7,7 @@ import { Entry } from '../records/entry/entry.model';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() buttonName!: string;
   @Output() onButtonToggleState: EventEmitter<boolean>;
 
@@ -18,12 +18,9 @@ export class ButtonComponent implements OnInit {
     this.onButtonToggleState = new EventEmitter();
   }
 
-  ngOnInit(): void {
-  }
-
   public btnClickHandler(event: any):void {
     const btnValue = event.target.textContent;
-    this.onButtonToggleState.emit(btnValue === 'Open All' ? true : false);
+    this.onButtonToggleState.emit(btnValue.toLowerCase().indexOf('open') > -1 ? true : false);
   }
 
 }

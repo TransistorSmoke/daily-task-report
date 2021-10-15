@@ -19,7 +19,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     
-    // Create and add new entry record for the day to allEntries and sort the new array in a descending order
+    /*
+     * Create and add new entry record for the day to allEntries and sort the new array in a descending order
+    */
     this.allEntries = this.allEntriesService.get();
     this.newEntries = [...this.allEntries, new Entry(new Date(), '')];
     this.newEntries.sort((a, b) => <any>new Date(b.entryDate) - <any>new Date(a.entryDate));
