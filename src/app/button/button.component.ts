@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Entry } from '../records/entry/entry.model';
-import { AllEntriesService } from '../data/entries-data.service';
+
 
 @Component({
   selector: 'app-button',
@@ -9,20 +9,21 @@ import { AllEntriesService } from '../data/entries-data.service';
 })
 export class ButtonComponent implements OnInit {
   @Input() buttonName!: string;
+  @Output() onButtonToggleState: EventEmitter<boolean>;
+
 
   allEntries!: Entry[];
 
-  constructor(private allEntriesService: AllEntriesService) {}
+  constructor() {
+    this.onButtonToggleState = new EventEmitter();
+  }
 
   ngOnInit(): void {
   }
 
   public btnClickHandler(event: any):void {
-    const entries = this.allEntriesService.get();
     const btnValue = event.target.textContent;
-    if (btnValue === 'Open All') {
-      entries.forEach(entry => entry.isEntryShown)
-    }
+    this.onButtonToggleState.emit(btnValue === 'Open All' ? true : false);
   }
 
 }

@@ -11,6 +11,7 @@ import { Entry } from './entry.model';
 export class EntryComponent implements AfterViewInit {
 	@Input() singleRecordEntry!: Entry;
 	@Input() isShown!: boolean;
+	@Input() openEntries!: boolean;
 
 	@ViewChild('clickToEdit') editorElement!: ElementRef;
 	@ViewChild('entryElement') entryElement!: ElementRef;
@@ -47,6 +48,10 @@ export class EntryComponent implements AfterViewInit {
 	}
 
 
+	/*
+	 * Toggle the display of an entry row
+	*/
+
 	public toggleEntryDisplay(): void {
 		// Show only entries with content. It's useless to show those with none.
 		if (this.singleRecordEntry.entryText !== '') {
@@ -56,6 +61,8 @@ export class EntryComponent implements AfterViewInit {
 		if (this.isEditClicked) {
 			this.isEditClicked = !this.isEditClicked;
 		}
+
+
 	}
 
 	/*

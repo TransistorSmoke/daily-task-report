@@ -1,10 +1,14 @@
 <div class="d-flex p-2 bg-secondary text-light">
+    
+    <!-- Toggle the display when up/down arrow is clicked -->
     <i 
         class="entry-icon bi bi-arrow-{{isShown ? 'down' : 'up'}}-square-fill mr-2"
         title="Toggle entry"
         (click)="toggleEntryDisplay()">
     </i>
     <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY'}} </span>
+
+    <!-- Edit the entry when icon is clicked -->
     <span 
         class="edit-entry" 
         (click)="editEntry()"
@@ -18,12 +22,16 @@
 </div>
 
 <div class="">
+
+    <!-- Display the entry -->
     <article 
         class="list-group-item h-0 border border-light text-secondary"
         contenteditable="false"
-        [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
+        [ngClass]="{hide: !singleRecordEntry.isEntryShown || !openEntries}"
         #entryElement>{{singleRecordEntry.entryText}}
     </article>
+
+    <!-- Choose to save or cancel the update of the entry -->
     <div class="text-right mb-2" [ngClass]="{hide: !isEditClicked}">
         <span>
             <button type="button" class="btn btn-light btn-sm mx-2 mt-1 save" (click)="editEntryHandler($event)">Save</button>

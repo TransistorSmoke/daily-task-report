@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Entry } from '../entry/entry.model';
-import { AllEntriesService } from '../../data/entries-data.service';
 
 @Component({
 	selector: 'app-records-group',
@@ -13,8 +11,9 @@ export class RecordsGroupComponent implements OnInit {
 
 	newEntry!: Entry;
 	today: string;
+	isOpenAllEntries: boolean = false;
 
-	constructor(private allEntriesService: AllEntriesService) { 
+	constructor() { 
 		this.today = Date();
 	}
 
@@ -25,7 +24,6 @@ export class RecordsGroupComponent implements OnInit {
 	*	Since a new entry row is automatically generated and added upon initialisation of the AppComponent, 
 	*	what needs to be done now is updating only that newly generated entry for the day.
 	*/
-
 	public receiveEmittedEntryHandler(objRecordsForm: any): void {
 		const todaysDate = new Date();
 		const indexEntry = this.arrayEntries.findIndex(entry => this.compareEntryDates(entry.entryDate, todaysDate));
@@ -42,6 +40,11 @@ export class RecordsGroupComponent implements OnInit {
 			}
 		}
 	}
+
+	public receiveEmittedButtonState(state: Boolean): void {
+		this.isOpenAllEntries = state ? true : false;
+	}
+
 
 	/*
 	 * Compares dates.
