@@ -19,7 +19,7 @@ export class AllEntriesService {
     add (entry: Entry) {
         this.allEntries.push(entry);
     }
-    
+
     delete (entry: Entry) {
         const indexEntry = this.allEntries.indexOf(entry);
         if (indexEntry > -1) {

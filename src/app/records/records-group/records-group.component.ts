@@ -41,8 +41,22 @@ export class RecordsGroupComponent implements OnInit {
 		}
 	}
 
+	/*
+	 * Open/close ALL entry records
+	 * If an entry row does not have any content, do not open. Leave as is.
+	*/
 	public receiveEmittedButtonState(state: Boolean): void {
 		this.isOpenAllEntries = state ? true : false;
+
+		this.arrayEntries.forEach((entry, i) => {
+			if (this.isOpenAllEntries) {
+				if (entry.entryText !== '') {
+					entry.isEntryShown = true;
+				}
+			} else {
+				entry.isEntryShown = false;
+			}
+		});
 	}
 
 

@@ -1,5 +1,4 @@
-import { Component, Input, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
-import { Event } from '@angular/router';
+import { Component, Input, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Entry } from './entry.model';
 
 @Component({
@@ -8,13 +7,14 @@ import { Entry } from './entry.model';
 	styleUrls: ['./entry.component.scss']
 })
 
-export class EntryComponent implements AfterViewInit {
+export class EntryComponent {
 	@Input() singleRecordEntry!: Entry;
 	@Input() isShown!: boolean;
 	@Input() openEntries!: boolean;
 
 	@ViewChild('clickToEdit') editorElement!: ElementRef;
 	@ViewChild('entryElement') entryElement!: ElementRef;
+
 
 	arrowPosition!: string;
 	dateToday: string;
@@ -26,9 +26,7 @@ export class EntryComponent implements AfterViewInit {
 		this.isEditClicked = false;
 	}
 
-	ngAfterViewInit() {
-		
-	}
+
 
 
 	/*
@@ -36,7 +34,6 @@ export class EntryComponent implements AfterViewInit {
 	 *
 	*/
 	public editEntry(): void {
-
 		if(!this.singleRecordEntry.isEntryShown && this.singleRecordEntry.entryText) {
 			this.singleRecordEntry.isEntryShown = true;
 		}
@@ -56,13 +53,13 @@ export class EntryComponent implements AfterViewInit {
 		// Show only entries with content. It's useless to show those with none.
 		if (this.singleRecordEntry.entryText !== '') {
 			this.singleRecordEntry.isEntryShown = !this.singleRecordEntry.isEntryShown;
+		} else {
+			this.singleRecordEntry.isEntryShown = false;
 		}
 
 		if (this.isEditClicked) {
 			this.isEditClicked = !this.isEditClicked;
 		}
-
-
 	}
 
 	/*

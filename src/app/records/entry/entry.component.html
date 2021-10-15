@@ -27,10 +27,9 @@
     <article 
         class="list-group-item h-0 border border-light text-secondary"
         contenteditable="false"
-        [ngClass]="{hide: !singleRecordEntry.isEntryShown || !openEntries}"
+        [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
         #entryElement>{{singleRecordEntry.entryText}}
     </article>
-
     <!-- Choose to save or cancel the update of the entry -->
     <div class="text-right mb-2" [ngClass]="{hide: !isEditClicked}">
         <span>
