@@ -9,6 +9,7 @@ import { Entry } from './entry.model';
 
 export class EntryComponent {
 	@Input() singleRecordEntry!: Entry;
+	@Input() entryIndex!: number;
 	@Input() isShown!: boolean;
 	@Input() openEntries!: boolean;
 

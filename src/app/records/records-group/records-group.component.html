@@ -7,11 +7,12 @@
 
 	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
 		<ul class="records-entries-list px-0">
-			<li class="entry-list-item" *ngFor="let entry of arrayEntries; let entryIndex = index" >
+			<li class="entry-list-item" *ngFor="let entry of arrayEntries; let i = index" >
 				<app-entry 
 					[singleRecordEntry]="entry" 
 					[isShown]="entry.isEntryShown"
-					[openEntries]="isOpenAllEntries">
+					[openEntries]="isOpenAllEntries"
+					[entryIndex]="i">
 				</app-entry>
 			</li>
 		</ul>

@@ -6,7 +6,7 @@
         title="Toggle entry"
         (click)="toggleEntryDisplay()">
     </i>
-    <span class="entry-date-width">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY'}} </span>
+    <span class="entry-date-width" [ngClass]="{'font-weight-bold': entryIndex === 0 }">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY'}} </span>
 
     <!-- Edit the entry when icon is clicked -->
     <span 
@@ -30,11 +30,12 @@
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
         #entryElement>{{singleRecordEntry.entryText}}
     </article>
+
     <!-- Choose to save or cancel the update of the entry -->
     <div class="text-right mb-2" [ngClass]="{hide: !isEditClicked}">
         <span>
-            <button type="button" class="btn btn-light btn-sm mx-2 mt-1 save" (click)="editEntryHandler($event)">Save</button>
-            <button type="button" class="btn btn-light btn-sm cancel" (click)="editEntryHandler($event)">Cancel</button>
+            <button type="button" class="btn btn-primary btn-sm mx-2 mt-1 save" (click)="editEntryHandler($event)">Save</button>
+            <button type="button" class="btn btn-primary btn-sm mt-1 cancel" (click)="editEntryHandler($event)">Cancel</button>
         </span>
     </div>
 </div>
