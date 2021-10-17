@@ -8,18 +8,22 @@ import { Entry } from '../records/entry/entry.model';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-  @Input() buttonName!: string;
+  @Input() btnOpenCloseState!: string;
   @Output() onButtonToggleState: EventEmitter<boolean>;
 
 
   allEntries!: Entry[];
+  
 
   constructor() {
     this.onButtonToggleState = new EventEmitter();
   }
 
+  /*
+   * Emit the event to event when open/close button is clicked
+  */
   public btnClickHandler(event: any):void {
-    const btnValue = event.target.textContent;
+    let btnValue = event.target.textContent;
     this.onButtonToggleState.emit(btnValue.toLowerCase().indexOf('open') > -1 ? true : false);
   }
 

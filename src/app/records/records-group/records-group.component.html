@@ -3,10 +3,7 @@
 		(onEntryEmit)="receiveEmittedEntryHandler($event)">
 	</app-form>
 
-	<div class="text-center mb-3">
-		<app-button [buttonName]="'Open All Entries'"  (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
-		<app-button [buttonName]="'Close All Entries'" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
-	</div>
+	<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
 
 	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
 		<ul class="records-entries-list px-0">

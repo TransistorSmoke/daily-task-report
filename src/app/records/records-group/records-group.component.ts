@@ -12,6 +12,7 @@ export class RecordsGroupComponent implements OnInit {
 	newEntry!: Entry;
 	today: string;
 	isOpenAllEntries: boolean = false;
+	btnOpenCloseState: string = 'Open';
 
 	constructor() { 
 		this.today = Date();
@@ -47,6 +48,7 @@ export class RecordsGroupComponent implements OnInit {
 	*/
 	public receiveEmittedButtonState(state: Boolean): void {
 		this.isOpenAllEntries = state ? true : false;
+		this.btnOpenCloseState = state ? 'Close' : 'Open';
 
 		this.arrayEntries.forEach((entry, i) => {
 			if (this.isOpenAllEntries) {
