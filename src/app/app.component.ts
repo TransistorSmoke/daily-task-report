@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from './records/entry/entry.model';
 import { AllEntriesService } from './data/entries-data.service';
-
+import {DatePickerComponent} from 'ng2-date-picker';  
 
 @Component({
   selector: 'app-root',
