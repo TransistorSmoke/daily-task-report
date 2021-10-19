@@ -1,15 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;700&display=swap');
 
 $core-text-size: 16px;
 
 html, 
 body {
+  height: 100%;
   overflow-x: hidden;
 }
 
 body {
-  font-family: 'Andada Pro', serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: $core-text-size;
 }
 
@@ -22,3 +23,5 @@ div {
   margin: 0;
   padding:0 
 }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

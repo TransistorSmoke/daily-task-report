@@ -1,6 +1,4 @@
 .entry-row {
-    border: 1px solid #e4e4e4;
-    border-radius: 5px;
 }
 .entry-date-width {
     flex-grow: 2;
@@ -17,11 +15,12 @@
 article  {
     white-space: pre-wrap;
 
-    &.hide {
-        display: none;
+    &.entry-font-sm {
+        font-size: 0.8rem;
     }
 }
 
 .hide {
     display: none;
 }
+

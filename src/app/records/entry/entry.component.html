@@ -21,18 +21,16 @@
     </span>  
 </div>
 
-<div class="">
-
+<div>
     <!-- Display the entry -->
     <article 
-        class="list-group-item h-0 border border-light text-secondary"
+        class="list-group-item h-0 border border-light text-secondary entry-font-sm"
         contenteditable="false"
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
-        #entryElement>{{singleRecordEntry.entryText}}
-    </article>
+        #entryElement>{{ singleRecordEntry.entryText}}</article>
 
     <!-- Choose to save or cancel the update of the entry -->
-    <div class="text-right mb-2" [ngClass]="{hide: !isEditClicked}">
+    <div class="text-right mb-3" [ngClass]="{hide: !isEditClicked}">
         <span>
             <button type="button" class="btn btn-primary btn-sm mx-2 mt-1 save" (click)="editEntryHandler($event)">Save</button>
             <button type="button" class="btn btn-primary btn-sm mt-1 cancel" (click)="editEntryHandler($event)">Cancel</button>

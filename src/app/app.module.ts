@@ -9,7 +9,7 @@ import { RecordsGroupComponent } from './records/records-group/records-group.com
 import { EntryComponent } from './records/entry/entry.component';
 import { FormDirective } from './form/form.directive';
 import { ButtonComponent } from './button/button.component';
-import { DpDatePickerModule } from 'ng2-date-picker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { DpDatePickerModule } from 'ng2-date-picker';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    DpDatePickerModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
