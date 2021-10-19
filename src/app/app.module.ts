@@ -10,6 +10,10 @@ import { EntryComponent } from './records/entry/entry.component';
 import { FormDirective } from './form/form.directive';
 import { ButtonComponent } from './button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -19,12 +23,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RecordsGroupComponent,
     EntryComponent,
     FormDirective,
-    ButtonComponent
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
