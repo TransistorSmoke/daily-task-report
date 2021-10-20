@@ -10,9 +10,8 @@ import { EntryComponent } from './records/entry/entry.component';
 import { FormDirective } from './form/form.directive';
 import { ButtonComponent } from './button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+
 
 
 @NgModule({
@@ -29,9 +28,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule
+    AngularMyDatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
