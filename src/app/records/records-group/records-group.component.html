@@ -1,11 +1,15 @@
-<div class="container border border-warning">
+<div class="container">
 	<app-form
 		(onEntryEmit)="receiveEmittedEntryHandler($event)">
 	</app-form>
 
-	<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
+
+	
+	
 
 	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
+		<app-searchbar></app-searchbar>
+		<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
 		<ul class="records-entries-list px-0">
 			<li class="entry-list-item" *ngFor="let entry of arrayEntries; let i = index" >
 				<app-entry 

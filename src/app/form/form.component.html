@@ -1,6 +1,6 @@
 <div class="form-header">
     <h1 class="font-weight-bold">{{ currentDate | date: 'dd MMMM YYYY' | uppercase }}</h1>
-    <h3 class="mt-3">Enter your accomplishments, issues and concerns for today</h3>
+    <h3 class="mt-2">Enter your accomplishments, issues and concerns for today</h3>
 </div>
 
 <form class="w-75 mx-auto mt-4 p-3 mb-2" [formGroup]="recordsForm" (ngSubmit)="entrySubmitHandler()"> 
