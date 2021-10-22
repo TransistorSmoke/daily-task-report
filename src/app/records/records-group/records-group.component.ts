@@ -13,7 +13,6 @@ export class RecordsGroupComponent implements OnInit {
 	today: string;
 	isOpenAllEntries: boolean = false;
 	btnOpenCloseState: string = 'Open';
-
 	searchAllEntries!: Entry[];
 
 	constructor() { 

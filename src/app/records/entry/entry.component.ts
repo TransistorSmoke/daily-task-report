@@ -16,10 +16,8 @@ export class EntryComponent {
 	@ViewChild('clickToEdit') editorElement!: ElementRef;
 	@ViewChild('entryElement') entryElement!: ElementRef;
 
-
 	arrowPosition!: string;
 	dateToday: string;
-
 	isEditClicked: boolean;
 
 	constructor(private renderer: Renderer2) { 
@@ -27,14 +25,11 @@ export class EntryComponent {
 		this.isEditClicked = false;
 	}
 
-
-
-
 	/*
 	 * Enable the editing of the entry
 	 *
 	*/
-	public editEntry(): void {
+	editEntry(): void {
 		if(!this.singleRecordEntry.isEntryShown && this.singleRecordEntry.entryText) {
 			this.singleRecordEntry.isEntryShown = true;
 		}
@@ -45,12 +40,11 @@ export class EntryComponent {
 		this.isEditClicked = true;
 	}
 
-
 	/*
 	 * Toggle the display of an entry row
 	*/
 
-	public toggleEntryDisplay(): void {
+	toggleEntryDisplay(): void {
 		// Show only entries with content. It's useless to show those with none.
 		if (this.singleRecordEntry.entryText !== '') {
 			this.singleRecordEntry.isEntryShown = !this.singleRecordEntry.isEntryShown;
@@ -67,7 +61,7 @@ export class EntryComponent {
 	 * Handles the entry edit save or cancel actions
 	 *
 	*/
-	public editEntryHandler(event: any) {
+	editEntryHandler(event: any): void {
 		const elNativeEntryRow = this.entryElement.nativeElement;
 		const isCancel = event.target.classList.value.indexOf('cancel') > -1 ? true : false;
 		const entryBeforeUpdate = this.singleRecordEntry.entryText;

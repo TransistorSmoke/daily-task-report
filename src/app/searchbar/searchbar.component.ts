@@ -35,12 +35,9 @@ export class SearchbarComponent implements OnInit, OnDestroy{
 
 		this.searchInputControl = this.searchForm.controls['search'];
 		this.searchInputControl.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(value => {
-			console.log('this.allEntries: ', this.allEntries);
 			this.searchedEntries = this.refAllEntries.filter(entry => entry.entryText.toLowerCase().indexOf(value.toLowerCase()) > -1);
 			this.onSearchEmit.emit(this.searchedEntries);
 		});
-
-	
 	}
 
 	ngOnDestroy(): void {

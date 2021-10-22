@@ -5,17 +5,20 @@
 
 	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
 		<app-searchbar [allEntries] = "arrayEntries" (onSearchEmit)="receiveEmittedSearchValue($event)"></app-searchbar>
-		<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
 
-		<ul class="records-entries-list px-0">
-			<li class="entry-list-item" *ngFor="let entry of arrayEntries; let i = index" >
-				<app-entry 
-					[singleRecordEntry]="entry" 
-					[isShown]="entry.isEntryShown"
-					[openEntries]="isOpenAllEntries"
-					[entryIndex]="i">
-				</app-entry>
-			</li>
-		</ul>
+		<div>
+			<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
+			<ul class="records-entries-list px-0">
+				<li class="entry-list-item" *ngFor="let entry of arrayEntries; let i = index" >
+					<app-entry 
+						[singleRecordEntry]="entry" 
+						[isShown]="entry.isEntryShown"
+						[openEntries]="isOpenAllEntries"
+						[entryIndex]="i">
+					</app-entry>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 </div>
