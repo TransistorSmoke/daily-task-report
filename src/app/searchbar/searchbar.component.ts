@@ -1,8 +1,9 @@
-import { Component, Input, OnDestroy, OnInit  } from '@angular/core';
+import { Component, Input, Output, OnDestroy, OnInit, EventEmitter  } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Entry } from '../records/entry/entry.model';
+import { AllEntriesService } from '../data/entries-data.service';
 
 @Component({
 	selector: 'app-searchbar',
@@ -11,15 +12,21 @@ import { Entry } from '../records/entry/entry.model';
 })
 export class SearchbarComponent implements OnInit, OnDestroy{
 	@Input() allEntries!: Entry[];
+	@Output() onSearchEmit: EventEmitter<Entry[]>;
 
 	searchForm!: FormGroup;
 	destroy$: Subject<boolean> = new Subject<boolean>();
 	searchInputControl!: AbstractControl;
-	tempAllEntries!: Entry[];
+	searchedEntries!: Entry[];
 
-	tempFilterStrng: string = 'PDF';
+	refAllEntries!: Entry[]
 
-	constructor() { }
+	tempFilterString: string = 'PDF';
+
+	constructor(private allEntriesService: AllEntriesService) { 
+		this.onSearchEmit = new EventEmitter();
+		this.refAllEntries = this.allEntriesService.get();
+	}
 
 	ngOnInit(): void {
 		this.searchForm = new FormGroup({
@@ -27,13 +34,21 @@ export class SearchbarComponent implements OnInit, OnDestroy{
 		});
 
 		this.searchInputControl = this.searchForm.controls['search'];
-		this.searchInputControl.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
-			
+		this.searchInputControl.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(value => {
+			console.log('this.allEntries: ', this.allEntries);
+			this.searchedEntries = this.refAllEntries.filter(entry => entry.entryText.toLowerCase().indexOf(value.toLowerCase()) > -1);
+			this.onSearchEmit.emit(this.searchedEntries);
 		});
+
+	
 	}
 
 	ngOnDestroy(): void {
 		this.destroy$.next(true);
 		this.destroy$.unsubscribe();
+	}
+
+	searchInputHandler() {
+		console.log('Emit keyboard event');
 	}
 }

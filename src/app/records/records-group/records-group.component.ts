@@ -14,6 +14,8 @@ export class RecordsGroupComponent implements OnInit {
 	isOpenAllEntries: boolean = false;
 	btnOpenCloseState: string = 'Open';
 
+	searchAllEntries!: Entry[];
+
 	constructor() { 
 		this.today = Date();
 	}
@@ -25,7 +27,7 @@ export class RecordsGroupComponent implements OnInit {
 	*	Since a new entry row is automatically generated and added upon initialisation of the AppComponent, 
 	*	what needs to be done now is updating only that newly generated entry for the day.
 	*/
-	public receiveEmittedEntryHandler(objRecordsForm: any): void {
+	receiveEmittedEntryHandler(objRecordsForm: any): void {
 		const todaysDate = new Date();
 		const indexEntry = this.arrayEntries.findIndex(entry => this.compareEntryDates(entry.entryDate, todaysDate));
 		const formInput = objRecordsForm.value.entry || null;
@@ -46,7 +48,7 @@ export class RecordsGroupComponent implements OnInit {
 	 * Open/close ALL entry records
 	 * If an entry row does not have any content, do not open. Leave as is.
 	*/
-	public receiveEmittedButtonState(state: Boolean): void {
+	receiveEmittedButtonState(state: Boolean): void {
 		this.isOpenAllEntries = state ? true : false;
 		this.btnOpenCloseState = state ? 'Close' : 'Open';
 
@@ -61,6 +63,10 @@ export class RecordsGroupComponent implements OnInit {
 		});
 	}
 
+	receiveEmittedSearchValue(searchedEntries: Entry[]): void {
+		this.arrayEntries = searchedEntries;
+	}
+
 
 	/*
 	 * Compares dates.
@@ -68,7 +74,7 @@ export class RecordsGroupComponent implements OnInit {
 	 *
 	*/
 
-	public compareEntryDates(date1: Date, date2: Date): boolean {
+	compareEntryDates(date1: Date, date2: Date): boolean {
 		return 	date1.getDay() === date2.getDay() && 
 				date1.getMonth() === date2.getMonth() &&
 				date1.getFullYear() === date2.getFullYear() ? true : false;
