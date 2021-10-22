@@ -66,7 +66,6 @@ export class RecordsGroupComponent implements OnInit {
 		this.arrayEntries = searchedEntries;
 	}
 
-
 	/*
 	 * Compares dates.
 	 * Returns true if dates are equal, false if otherwise.

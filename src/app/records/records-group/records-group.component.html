@@ -6,7 +6,7 @@
 	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
 		<app-searchbar [allEntries] = "arrayEntries" (onSearchEmit)="receiveEmittedSearchValue($event)"></app-searchbar>
 
-		<div>
+		<div [ngClass]="{'d-none': arrayEntries.length === 0}">
 			<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
 			<ul class="records-entries-list px-0">
 				<li class="entry-list-item" *ngFor="let entry of arrayEntries; let i = index" >
@@ -18,6 +18,10 @@
 					</app-entry>
 				</li>
 			</ul>
+		</div>
+
+		<div class="alert alert-danger mt-3" role="alert" [ngClass]="{'d-none': arrayEntries.length > 0}">
+			Sorry. Searched entry does not exist. 
 		</div>
 
 	</div>
