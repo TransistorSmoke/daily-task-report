@@ -1,5 +1,12 @@
 # DailyTaskReport
 
+This is a project that I will use to record my daily accompliments, concerns and issues encountered with my tickets.
+I have been longing to create this app. I have been using Excel to do my records. 
+
+This time, it might be worthwhile to create something that I can personally use. It's a good practice to apply what I learned in HTML, CSS, JS and Angular.
+
+------------------
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
 ## Development server
