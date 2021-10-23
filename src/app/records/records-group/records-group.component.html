@@ -3,7 +3,7 @@
 		(onEntryEmit)="receiveEmittedEntryHandler($event)">
 	</app-form>
 
-	<div class="d-flex justify-content-center flex-column col-md-9 mx-auto">
+	<div class="d-flex justify-content-center flex-column col-l-9 mx-auto">
 		<app-searchbar [allEntries] = "arrayEntries" (onSearchEmit)="receiveEmittedSearchValue($event)"></app-searchbar>
 
 		<div [ngClass]="{'d-none': arrayEntries.length === 0}">
