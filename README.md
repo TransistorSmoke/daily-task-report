@@ -1,9 +1,10 @@
 # DailyTaskReport
 
-This is a project that I will use to record my daily accompliments, concerns and issues encountered with my tickets.
-I have been longing to create this app. I have been using Excel to do my records. 
+This app records my daily accompliments, concerns and issues encountered in my work. Currently, I use Excel to do such tasks.
 
-This time, it might be worthwhile to create something that I can personally use. It's a good practice to apply what I learned in HTML, CSS, JS and Angular.
+This is a small project that I came up to practice the use of Angular. I just transitioned into using a Javascript framework in August 2021, with Angular as my first framework. I never had any experience in using any JS framework before.
+
+This app does not have any capability yet to communicate with a database. The feature will be implemented later.
 
 ------------------
 
