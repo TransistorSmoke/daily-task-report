@@ -12,10 +12,10 @@ export class RecordsGroupComponent implements OnInit {
 	newEntry!: Entry;
 	today: string;
 	isOpenAllEntries: boolean = false;
-	btnOpenCloseState: string = 'Open';
+	btnOpenCloseState: string = 'Expand';
 	searchAllEntries!: Entry[];
 
-	constructor() { 
+	constructor() {
 		this.today = Date();
 	}
 
@@ -23,7 +23,7 @@ export class RecordsGroupComponent implements OnInit {
 
 	/*
 	*	Adds the input value in the textbox as the day's new entry record
-	*	Since a new entry row is automatically generated and added upon initialisation of the AppComponent, 
+	*	Since a new entry row is automatically generated and added upon initialisation of the AppComponent,
 	*	what needs to be done now is updating only that newly generated entry for the day.
 	*/
 	receiveEmittedEntryHandler(objRecordsForm: any): void {
@@ -49,7 +49,7 @@ export class RecordsGroupComponent implements OnInit {
 	*/
 	receiveEmittedButtonState(state: Boolean): void {
 		this.isOpenAllEntries = state ? true : false;
-		this.btnOpenCloseState = state ? 'Close' : 'Open';
+		this.btnOpenCloseState = state ? 'Collapse' : 'Expand';
 
 		this.arrayEntries.forEach((entry, i) => {
 			if (this.isOpenAllEntries) {
@@ -73,7 +73,7 @@ export class RecordsGroupComponent implements OnInit {
 	*/
 
 	compareEntryDates(date1: Date, date2: Date): boolean {
-		return 	date1.getDay() === date2.getDay() && 
+		return 	date1.getDay() === date2.getDay() &&
 				date1.getMonth() === date2.getMonth() &&
 				date1.getFullYear() === date2.getFullYear() ? true : false;
 	}

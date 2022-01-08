@@ -13,7 +13,7 @@ export class ButtonComponent {
 
 
   allEntries!: Entry[];
-  
+
 
   constructor() {
     this.onButtonToggleState = new EventEmitter();
@@ -24,7 +24,7 @@ export class ButtonComponent {
   */
   public btnClickHandler(event: any):void {
     let btnValue = event.target.textContent;
-    this.onButtonToggleState.emit(btnValue.toLowerCase().indexOf('open') > -1 ? true : false);
+    this.onButtonToggleState.emit(btnValue.toLowerCase().indexOf('expand') > -1 ? true : false);
   }
 
 }
