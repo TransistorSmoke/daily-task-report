@@ -9,6 +9,10 @@
     </i>
     <span class="entry-date-width" [ngClass]="{'font-weight-bold': entryIndex === 0 }">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY (EEEE)'}} </span>
 
+    <div class="row-action" *ngIf="!singleRecordEntry.entryText">
+        <span class="no-record">No record yet for today</span>
+    </div>
+
     <div class="row-action" *ngIf="singleRecordEntry.entryText">
         <!-- Expand/collapse the entry row -->
         <span
