@@ -1,29 +1,39 @@
 <div class="d-flex p-2 bg-light text-dark entry-row">
-    
+
     <!-- Toggle the display when up/down arrow is clicked -->
-    <i 
+    <i
         class="entry-icon bi bi-arrow-{{isShown ? 'down' : 'up'}}-square-fill mr-2"
         title="Toggle entry"
-        (click)="toggleEntryDisplay()">
+        (click)="toggleEntryDisplay()"
+        >
     </i>
     <span class="entry-date-width" [ngClass]="{'font-weight-bold': entryIndex === 0 }">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY (EEEE)'}} </span>
 
-    <!-- Edit the entry when icon is clicked -->
-    <span 
-        class="edit-entry" 
-        (click)="editEntry()"
-        [ngClass]="{disabled: singleRecordEntry.entryText.length === 0}" 
-        #clickToEdit>Edit
-            <i 
-                class="entry-icon bi bi-pencil-square ml-1"
-                title="Edit entry record">
-            </i>
-    </span>  
+
+    <div class="row-action">
+        <!-- Expand/collapse the entry row -->
+        <span
+            class="expand-collapse"
+            (click)="toggleEntryDisplay()">
+            {{ isShown ? 'Collapse' : 'Expand' }}<i class="bi bi-{{isShown ? 'arrows-collapse' : 'chevron-expand'}} row-action-icon" title="Expand entry"></i>
+        </span>
+
+        <!-- Edit the entry when icon is clicked -->
+        <span
+            class="edit-entry"
+            (click)="editEntry()"
+            [ngClass]="{disabled: singleRecordEntry.entryText.length === 0}"
+            #clickToEdit>
+                Edit<i class="entry-icon bi bi-pencil-square row-action-icon" title="Edit entry record"></i>
+        </span>
+    </div>
+
+
 </div>
 
 <div>
     <!-- Display the entry -->
-    <article 
+    <article
         class="list-group-item h-0 border border-light text-secondary entry-font-sm"
         contenteditable="false"
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"

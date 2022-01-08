@@ -1,5 +1,3 @@
-.entry-row {
-}
 .entry-date-width {
     flex-grow: 2;
 }
@@ -24,3 +22,24 @@ article  {
     display: none;
 }
 
+.row-action {
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    span {
+        &:hover {
+            transition: 0.5s color;
+        }
+
+        &.expand-collapse:hover {
+            color: blue;
+
+        }
+        &.edit-entry:hover {
+            color: red;
+        }
+    }
+    &-icon {
+        margin: 0 6px 0 2px;
+    }
+}

@@ -20,7 +20,7 @@ export class EntryComponent {
 	dateToday: string;
 	isEditClicked: boolean;
 
-	constructor(private renderer: Renderer2) { 
+	constructor(private renderer: Renderer2) {
 		this.dateToday = Date();
 		this.isEditClicked = false;
 	}
@@ -67,14 +67,14 @@ export class EntryComponent {
 		const entryBeforeUpdate = this.singleRecordEntry.entryText;
 
 		// Close the save/cancel row, set the textarea to be uneditable
-		if (isCancel) {	
-			this.renderer.setProperty(elNativeEntryRow, 'textContent', entryBeforeUpdate);	
+		if (isCancel) {
+			this.renderer.setProperty(elNativeEntryRow, 'textContent', entryBeforeUpdate);
 		} else {
-			this.renderer.setProperty(elNativeEntryRow, 'textContent', elNativeEntryRow.innerText);	
+			this.renderer.setProperty(elNativeEntryRow, 'textContent', elNativeEntryRow.innerText);
 			this.singleRecordEntry.entryText = elNativeEntryRow.innerText;
 		}
 
-		this.isEditClicked = false;	
+		this.isEditClicked = false;
 		this.renderer.setAttribute(elNativeEntryRow, 'contenteditable', 'false');
 	}
 }
