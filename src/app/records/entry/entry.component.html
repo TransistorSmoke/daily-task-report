@@ -9,8 +9,7 @@
     </i>
     <span class="entry-date-width" [ngClass]="{'font-weight-bold': entryIndex === 0 }">{{ singleRecordEntry.entryDate | date: 'd MMMM YYYY (EEEE)'}} </span>
 
-
-    <div class="row-action">
+    <div class="row-action" *ngIf="singleRecordEntry.entryText">
         <!-- Expand/collapse the entry row -->
         <span
             class="expand-collapse"
@@ -27,8 +26,6 @@
                 Edit<i class="entry-icon bi bi-pencil-square row-action-icon" title="Edit entry record"></i>
         </span>
     </div>
-
-
 </div>
 
 <div>
@@ -37,7 +34,8 @@
         class="list-group-item h-0 border border-light text-secondary entry-font-sm"
         contenteditable="false"
         [ngClass]="{hide: !singleRecordEntry.isEntryShown}"
-        #entryElement>{{ singleRecordEntry.entryText}}</article>
+        #entryElement>{{ singleRecordEntry.entryText}}
+    </article>
 
     <!-- Choose to save or cancel the update of the entry -->
     <div class="text-right mb-3" [ngClass]="{hide: !isEditClicked}">

@@ -10,18 +10,19 @@
 			<app-button [btnOpenCloseState]="btnOpenCloseState" (onButtonToggleState)="receiveEmittedButtonState($event)"></app-button>
 			<ul class="records-entries-list px-0">
 				<li class="entry-list-item" *ngFor="let entry of arrayEntries; let i = index" >
-					<app-entry 
-						[singleRecordEntry]="entry" 
+					<app-entry
+						[singleRecordEntry]="entry"
 						[isShown]="entry.isEntryShown"
 						[openEntries]="isOpenAllEntries"
-						[entryIndex]="i">
+						[entryIndex]="i"
+                        articleUxControl>
 					</app-entry>
 				</li>
 			</ul>
 		</div>
 
 		<div class="alert alert-danger mt-3" role="alert" [ngClass]="{'d-none': arrayEntries.length > 0}">
-			Sorry. Searched entry does not exist. 
+			Sorry. Searched entry does not exist.
 		</div>
 
 	</div>

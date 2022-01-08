@@ -12,6 +12,7 @@ import { ButtonComponent } from './button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { EntryDirective } from './records/entry/entry.directive';
 
 
 
@@ -25,6 +26,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     FormDirective,
     ButtonComponent,
     SearchbarComponent,
+    EntryDirective,
   ],
   imports: [
     BrowserModule,
