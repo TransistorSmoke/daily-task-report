@@ -1,5 +1,7 @@
 # DailyTaskReport
 
+https://daily-task-report-v0.netlify.app/
+
 This app records my daily accompliments, concerns and issues encountered in my work. Currently, I use Excel to do such tasks.
 
 This is a small project that I came up to practice the use of Angular. I just transitioned into using a Javascript framework in August 2021, with Angular as my first framework. I never had any experience in using any JS framework before.
